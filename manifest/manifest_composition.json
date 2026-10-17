@@ -1,0 +1,21 @@
+{
+  "seed": "signalpost-agent-v1",
+  "universe_row_count": 411160,
+  "manifest_size": 1000,
+  "population_size": 620,
+  "strata_sizes": {
+    "S1_rich_site_20plus_employees": 50,
+    "S2_site_but_shell_like_industry": 30,
+    "S3_no_site_real_employees": 40,
+    "S4_no_site_no_employees_shell_industry": 30,
+    "S5_large_or_asa": 30,
+    "S6_non_as_legal_forms": 50,
+    "S7_namesake_names": 30,
+    "S8_unusual_characters_in_name": 30,
+    "S9_shared_website_host": 40,
+    "S10_bankrupt_or_liquidating": 0,
+    "S11_regulated_financial_industry": 20,
+    "S12_non_no_or_malformed_website": 30
+  },
+  "selection_sha256": "f30b771d281cce6361dff26b927a02014d8135481c9df5449718aafd9cac8645"
+}

@@ -1,0 +1,22 @@
+[project]
+name = "signalpost-agent"
+version = "1.0.0"
+description = "Norwegian company research agent for the Builderr Signalpost challenge"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4==4.12.3",
+    "lxml==5.3.0",
+    "tldextract==5.3.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.3",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
