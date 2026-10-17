@@ -80,7 +80,12 @@ def build_summary(organisation_number: str, claims: list[Claim], changes: list) 
         )
         cited.append(latest.claim_id)
     else:
-        unknowns.append("filed accounts")
+        # Annual result may be available even when the filing has no
+        # extractable revenue figure. Calling all filed accounts unknown in
+        # that case contradicts the available account claims in the same
+        # profile. Name only the missing fact when other account data exists.
+        account_claims = _find_all(claims, "accounts.annual_result")
+        unknowns.append("revenue" if account_claims else "filed accounts")
 
     roles = _find(claims, "leadership.roles")
     if roles and roles.value:

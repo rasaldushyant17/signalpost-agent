@@ -54,6 +54,17 @@ def test_summary_cites_revenue_with_scope_wording():
     assert containment_check(result["text"], claims) == []
 
 
+def test_summary_names_missing_revenue_when_annual_result_is_available():
+    claims = [
+        _claim("identity.legal_name", "Example AS"),
+        _claim("accounts.annual_result", 123_456, scope="SELSKAP", unit="NOK",
+               reporting_period={"from": "2025-01-01", "to": "2025-12-31"}),
+    ]
+    result = build_summary(ORG, claims, changes=[])
+    assert "revenue" in result["unknowns"]
+    assert "filed accounts" not in result["unknowns"]
+
+
 def test_containment_check_flags_fabricated_number():
     claims = [_claim("identity.legal_name", "Example AS")]
     fabricated_text = "Example AS reported revenue of 9999999 last year."
